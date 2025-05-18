@@ -1,4 +1,5 @@
 from sqlmodel import SQLModel, create_engine
+from .models.link import Link  # noqa: F401
 from dotenv import load_dotenv, find_dotenv
 import os
 

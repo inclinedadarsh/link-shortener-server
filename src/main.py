@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 from .db import create_db_and_tables
+from src.routes.link import router as link_router
 
 
 @asynccontextmanager
@@ -13,6 +14,9 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+
+
+app.include_router(link_router, prefix="/links", tags=["links"])
 
 
 @app.get("/")
