@@ -46,7 +46,7 @@ def post_link(link: LinkCreate):
         return db_link
 
 
-@router.post("/{link_short}", response_model=Link, status_code=status.HTTP_200_OK)
+@router.get("/{link_short}", response_model=Link, status_code=status.HTTP_200_OK)
 def get_link(link_short: str):
     with Session(engine) as session:
         existing_link = session.exec(
